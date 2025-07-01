@@ -1,6 +1,11 @@
-// app/(pasta ou rota)/company-home.tsx
+// app/(rota)/company-home.tsx
 import { YStack, XStack, Text, Image, Button, ScrollView, View } from 'tamagui'
 import { Menu } from '../../../components/Menu'
+import { 
+    Settings as SettingsIcon,
+    CreditCard as CardIcon,
+    Bell as BellIcon
+         } from '@tamagui/lucide-icons'
 
 export default function AdminHome() {
   return (
@@ -17,9 +22,9 @@ export default function AdminHome() {
           </XStack>
 
           <XStack space="$3">
-            <Button size="$2" bg="transparent">💳</Button>
-            <Button size="$2" bg="transparent">🔔</Button>
-            <Button size="$2" bg="transparent">⚙️</Button>
+            <Button size="$2" bg="transparent"><CardIcon></CardIcon></Button>
+            <Button size="$2" bg="transparent"><BellIcon></BellIcon></Button>
+            <Button size="$2" bg="transparent"><SettingsIcon></SettingsIcon></Button>
           </XStack>
         </XStack>
 
@@ -29,6 +34,10 @@ export default function AdminHome() {
         </XStack>
       </YStack>
 
+      {/* Linha divisória */}
+      <View height={0.8} width="100%" bg="black" />
+
+      {/* Corpo scrollável */}
       <ScrollView p="$4">
         <YStack space="$4">
           {/* Próximas sessões */}

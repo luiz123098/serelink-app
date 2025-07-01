@@ -18,7 +18,7 @@ export default function Login() {
       // Precisa validar o tipo de usuario Admin ou membro
       // Tem que fazer a logica de identificar o userAppType e levar ele para a pagina certa
       router.push({
-        pathname: './team/admin.adminHome',
+        pathname: './team/admin/adminHome',
         params: {
           appType: userAppType,
           email // adicione dados do banco de acordo
