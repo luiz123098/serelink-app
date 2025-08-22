@@ -1,7 +1,6 @@
 import { useRouter } from 'expo-router';
 import { Button } from '~/components/Button';
 import { YStack, Text, Image } from 'tamagui'
-import { replace } from 'expo-router/build/global-state/routing';
 
 export default function Home() {
   const router = useRouter()

@@ -36,10 +36,9 @@ export default function Login() {
     >
         <ScrollView f={1} bg="white" p="$4">
         <YStack f={1} ai="center" space="$4" mt="$6">
-            {/* Logo */}
+
             <Image source={require('../assets/logo.png')} width={200} height={200} ></Image>
 
-            {/* Título */}
             <Text fontSize="$8" fontWeight="bold">WellnessHub</Text>
             <Text fontSize="$4" color="$gray10">Join us for better well-being</Text>
 
@@ -52,7 +51,6 @@ export default function Login() {
                 onChangeText={setEmail}
                 keyboardType="email-address"
             />
-            {/* Ícone de email pode ser adicionado aqui com <XStack> se quiser */}
 
             <Label>Password</Label>
             <Input
@@ -61,10 +59,8 @@ export default function Login() {
                 onChangeText={setPassword}
                 secureTextEntry
             />
-            {/* Ícone de cadeado pode ser adicionado aqui também */}
             </YStack>
 
-            {/* Botão */}
             <Button
             title="Log in"
             bg="#99cc33"

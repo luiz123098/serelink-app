@@ -16,7 +16,6 @@ export function Menu() {
     <View position="absolute" bottom={0} width="100%" bg="#99cc33" p="$3">
       <XStack jc="space-around" ai="center">
 
-
         <Button circular bg="transparent" onPress={() => router.push('/team/admin/adminHome')}>
           <CalendarIcon color="white" size={24} />
         </Button>
@@ -36,7 +35,6 @@ export function Menu() {
         <Button circular bg="transparent" onPress={() => router.push('/team/admin/adminHome')}>
           <UserIcon color="white" size={24} />
         </Button>
-
 
       </XStack>
     </View>

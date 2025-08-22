@@ -34,7 +34,6 @@ export default function AdminHome() {
         </XStack>
       </YStack>
 
-      {/* Linha divisória */}
       <View height={0.8} width="100%" bg="black" />
 
       {/* Corpo scrollável */}

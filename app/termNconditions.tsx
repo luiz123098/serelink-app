@@ -9,7 +9,7 @@ export default function TermsNConditions() {
   const [agreed, setAgreed] = useState(false)
 
   const handleAgree = async () => {
-    setAgreed(true)
+    setAgreed(true)   
 
     const userData = {
       ...params, // inclui fullName, email, password, appType, etc.
