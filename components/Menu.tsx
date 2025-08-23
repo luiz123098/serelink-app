@@ -16,23 +16,23 @@ export function Menu() {
     <View position="absolute" bottom={0} width="100%" bg="#99cc33" p="$3">
       <XStack jc="space-around" ai="center">
 
-        <Button circular bg="transparent" onPress={() => router.push('/team/admin/adminHome')}>
+        <Button circular bg="transparent" onPress={() => router.push('../psychologist/schedulePsy')}>
           <CalendarIcon color="white" size={24} />
         </Button>
 
-        <Button circular bg="transparent" onPress={() => router.push('/team/admin/adminHome')}>
+        <Button circular bg="transparent" onPress={() => router.push('../admin/adminHome')}>
           <VideoIcon color="white" size={24} />
         </Button>
 
-        <Button circular bg="transparent" onPress={() => router.push('/team/admin/adminHome')}>
+        <Button circular bg="transparent" onPress={() => router.push('../admin/adminHome')}>
           <HomeIcon color="white" size={24} />
         </Button>
 
-        <Button circular bg="transparent" onPress={() => router.push('/team/admin/adminHome')}>
+        <Button circular bg="transparent" onPress={() => router.push('../admin/adminHome')}>
           <GraphIcon color="white" size={24} />
         </Button>
 
-        <Button circular bg="transparent" onPress={() => router.push('/team/admin/adminHome')}>
+        <Button circular bg="transparent" onPress={() => router.push('../admin/adminHome')}>
           <UserIcon color="white" size={24} />
         </Button>
 

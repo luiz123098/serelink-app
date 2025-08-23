@@ -36,7 +36,7 @@ export default function TermsNConditions() {
 
     // Por enquanto, simula envio e navega para próxima página
     console.log('Usuário cadastrado (simulado):', userData)
-    router.push('/') // substitua pelo próximo passo real
+    router.push('../') // substitua pelo próximo passo real
   }
 
   return (
