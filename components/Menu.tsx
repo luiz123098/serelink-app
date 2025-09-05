@@ -59,9 +59,9 @@ const ITEMS: Item[] = [
   },
   {
     key: 'analytics',
-    href: '../admin/adminHome' as Href,
+    href: '../admin/adminAnalytics' as Href,
     Icon: GraphIcon,
-    match: '../admin/analytics', // ajuste se existir rota real
+    match: '../admin/adminAnalytics', // ajuste se existir rota real
   },
   {
     key: 'profile',

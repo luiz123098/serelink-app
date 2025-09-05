@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FlatList, TouchableOpacity } from "react-native";
-import { YStack, XStack, Input, Button, Text, Card, Avatar } from "tamagui";
+import { YStack, XStack, Input, Button, Text, Card, Avatar, Separator } from "tamagui";
 import { Star, Search, SlidersHorizontal } from "@tamagui/lucide-icons";
 import { useRouter } from "expo-router";
 
@@ -107,12 +107,13 @@ export default function SearchPsy() {
             backgroundColor="transparent"
           />
         </XStack>
-
         {/* Botão que abre a tela de filtro */}
         <Button onPress={() => router.push("/team/psychologist/Filter")}>
           <SlidersHorizontal />
         </Button>
       </XStack>
+
+      <Separator marginVertical={0} />
 
       {/* Lista de psicólogos */}
       <FlatList

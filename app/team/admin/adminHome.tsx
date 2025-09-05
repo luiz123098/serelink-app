@@ -1,5 +1,5 @@
 // app/(rota)/company-home.tsx
-import { YStack, XStack, Text, Image, Button, ScrollView, View } from 'tamagui'
+import { YStack, XStack, Text, Image, Button, ScrollView, View, Separator } from 'tamagui'
 import { Menu } from '../../../components/Menu'
 import { 
     Settings as SettingsIcon,
@@ -34,10 +34,12 @@ export default function AdminHome() {
         </XStack>
       </YStack>
 
-      <View height={0.8} width="100%" bg="black" />
+<Separator marginVertical={0} />
 
       {/* Corpo scrollável */}
-      <ScrollView p="$4">
+      <ScrollView 
+        contentContainerStyle={{ padding: 20, paddingBottom: 0 }}
+      >
         <YStack space="$4">
           {/* Próximas sessões */}
           <Text fontWeight="700">Next sessions</Text>

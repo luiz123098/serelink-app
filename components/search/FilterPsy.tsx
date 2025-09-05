@@ -9,13 +9,10 @@ import {
   Button,
   Separator,
   Card,
-  Select,
-  Adapt,
-  Sheet,
 } from "tamagui";
 import { useRouter } from "expo-router";
-import { Check, ChevronDown, ChevronUp, X as CloseIcon } from "@tamagui/lucide-icons";
-import { LinearGradient } from "tamagui/linear-gradient";
+import { X as CloseIcon } from "@tamagui/lucide-icons";
+import { Picker } from "@react-native-picker/picker";
 
 export default function FilterPsy() {
   const router = useRouter();
@@ -24,8 +21,6 @@ export default function FilterPsy() {
   const [specialty, setSpecialty] = useState("anxiety");
   const [approach, setApproach] = useState("cbt");
   const [diversity, setDiversity] = useState("lgbt");
-  const [price, setPrice] = useState<number[]>([50, 100]);
-
   const [country, setCountry] = useState("");
   const [city, setCity] = useState("");
   const [date, setDate] = useState("");
@@ -35,7 +30,6 @@ export default function FilterPsy() {
     setSpecialty("anxiety");
     setApproach("cbt");
     setDiversity("lgbt");
-    setPrice([50, 100]);
     setCountry("");
     setCity("");
     setDate("");
@@ -45,7 +39,7 @@ export default function FilterPsy() {
   const apply = () => {
     alert(
       JSON.stringify(
-        { specialty, approach, diversity, price, country, city, date, time },
+        { specialty, approach, diversity, country, city, date, time },
         null,
         2
       )
@@ -69,223 +63,34 @@ export default function FilterPsy() {
         contentContainerStyle={{ padding: 16, paddingBottom: 96 }}
         showsVerticalScrollIndicator
       >
-        {/* Specialties (Custom Select) */}
-        <Card p="$3" br="$6" bw={1} boc="$gray4" mb="$3" overflow="visible">
+        {/* Specialties */}
+        <Card p="$3" br="$6" bw={1} boc="$gray4" mb="$3">
           <Text fontSize="$5" fontWeight="700" mb="$2">Specialties</Text>
-
-          <Select
-            value={specialty}
+          <Picker
+            selectedValue={specialty}
             onValueChange={setSpecialty}
-            disablePreventBodyScroll
+            style={{ backgroundColor: "white", borderRadius: 8 }}
           >
-            <Select.Trigger
-              br="$8"
-              bw={1}
-              boc="$gray5"
-              bg="white"
-              h={42}
-              px="$3"
-              iconAfter={ChevronDown}
-              maxWidth="100%"
-            >
-              <Select.Value placeholder="Choose" />
-            </Select.Trigger>
-
-            {/* abre como Sheet no touch (RN), dropdown no web */}
-            <Adapt when="sm" platform="touch">
-              <Sheet modal dismissOnSnapToBottom snapPointsMode="fit">
-                <Sheet.Frame p="$3">
-                  <Sheet.ScrollView>
-                    <Adapt.Contents />
-                  </Sheet.ScrollView>
-                </Sheet.Frame>
-                <Sheet.Overlay />
-              </Sheet>
-            </Adapt>
-
-            <Select.Content zIndex={200000}>
-              <Select.ScrollUpButton
-                alignItems="center"
-                justifyContent="center"
-                position="relative"
-                width="100%"
-                height="$3"
-              >
-                <YStack zIndex={10}>
-                  <ChevronUp size={20} />
-                </YStack>
-                <LinearGradient
-                  start={[0, 0]}
-                  end={[0, 1]}
-                  fullscreen
-                  colors={["$background", "transparent"]}
-                  borderRadius="$4"
-                />
-              </Select.ScrollUpButton>
-
-              <Select.Viewport minWidth={240}>
-                <Select.Group>
-                  <Select.Label>Specialties</Select.Label>
-
-                  <Select.Item index={0} value="anxiety">
-                    <Select.ItemText>Anxiety</Select.ItemText>
-                    <Select.ItemIndicator marginLeft="auto">
-                      <Check size={16} />
-                    </Select.ItemIndicator>
-                  </Select.Item>
-
-                  <Select.Item index={1} value="depression">
-                    <Select.ItemText>Depression</Select.ItemText>
-                    <Select.ItemIndicator marginLeft="auto">
-                      <Check size={16} />
-                    </Select.ItemIndicator>
-                  </Select.Item>
-
-                  <Select.Item index={2} value="family">
-                    <Select.ItemText>Family</Select.ItemText>
-                    <Select.ItemIndicator marginLeft="auto">
-                      <Check size={16} />
-                    </Select.ItemIndicator>
-                  </Select.Item>
-
-                  <Select.Item index={3} value="stress">
-                    <Select.ItemText>Stress Management</Select.ItemText>
-                    <Select.ItemIndicator marginLeft="auto">
-                      <Check size={16} />
-                    </Select.ItemIndicator>
-                  </Select.Item>
-                </Select.Group>
-              </Select.Viewport>
-
-              <Select.ScrollDownButton
-                alignItems="center"
-                justifyContent="center"
-                position="relative"
-                width="100%"
-                height="$3"
-              >
-                <YStack zIndex={10}>
-                  <ChevronDown size={20} />
-                </YStack>
-                <LinearGradient
-                  start={[0, 0]}
-                  end={[0, 1]}
-                  fullscreen
-                  colors={["transparent", "$background"]}
-                  borderRadius="$4"
-                />
-              </Select.ScrollDownButton>
-            </Select.Content>
-          </Select>
+            <Picker.Item label="Anxiety" value="anxiety" />
+            <Picker.Item label="Depression" value="depression" />
+            <Picker.Item label="Family" value="family" />
+            <Picker.Item label="Stress Management" value="stress" />
+          </Picker>
         </Card>
 
-        {/* Therapeutic Approach (Custom Select) */}
-        <Card p="$3" br="$6" bw={1} boc="$gray4" mb="$3" overflow="visible">
+        {/* Therapeutic Approach */}
+        <Card p="$3" br="$6" bw={1} boc="$gray4" mb="$3">
           <Text fontSize="$5" fontWeight="700" mb="$2">Therapeutic Approach</Text>
-
-          <Select
-            value={approach}
+          <Picker
+            selectedValue={approach}
             onValueChange={setApproach}
-            disablePreventBodyScroll
+            style={{ backgroundColor: "white", borderRadius: 8 }}
           >
-            <Select.Trigger
-              br="$8"
-              bw={1}
-              boc="$gray5"
-              bg="white"
-              h={42}
-              px="$3"
-              iconAfter={ChevronDown}
-              maxWidth="100%"
-            >
-              <Select.Value placeholder="Choose" />
-            </Select.Trigger>
-
-            <Adapt when="sm" platform="touch">
-              <Sheet modal dismissOnSnapToBottom snapPointsMode="fit">
-                <Sheet.Frame p="$3">
-                  <Sheet.ScrollView>
-                    <Adapt.Contents />
-                  </Sheet.ScrollView>
-                </Sheet.Frame>
-                <Sheet.Overlay />
-              </Sheet>
-            </Adapt>
-
-            <Select.Content zIndex={200000}>
-              <Select.ScrollUpButton
-                alignItems="center"
-                justifyContent="center"
-                position="relative"
-                width="100%"
-                height="$3"
-              >
-                <YStack zIndex={10}>
-                  <ChevronUp size={20} />
-                </YStack>
-                <LinearGradient
-                  start={[0, 0]}
-                  end={[0, 1]}
-                  fullscreen
-                  colors={["$background", "transparent"]}
-                  borderRadius="$4"
-                />
-              </Select.ScrollUpButton>
-
-              <Select.Viewport minWidth={240}>
-                <Select.Group>
-                  <Select.Label>Approaches</Select.Label>
-
-                  <Select.Item index={0} value="cbt">
-                    <Select.ItemText>Cognitive Behavioral Therapy</Select.ItemText>
-                    <Select.ItemIndicator marginLeft="auto">
-                      <Check size={16} />
-                    </Select.ItemIndicator>
-                  </Select.Item>
-
-                  <Select.Item index={1} value="psychoanalysis">
-                    <Select.ItemText>Psychoanalysis</Select.ItemText>
-                    <Select.ItemIndicator marginLeft="auto">
-                      <Check size={16} />
-                    </Select.ItemIndicator>
-                  </Select.Item>
-
-                  <Select.Item index={2} value="mindfulness">
-                    <Select.ItemText>Mindfulness</Select.ItemText>
-                    <Select.ItemIndicator marginLeft="auto">
-                      <Check size={16} />
-                    </Select.ItemIndicator>
-                  </Select.Item>
-
-                  <Select.Item index={3} value="systemic">
-                    <Select.ItemText>Systemic Therapy</Select.ItemText>
-                    <Select.ItemIndicator marginLeft="auto">
-                      <Check size={16} />
-                    </Select.ItemIndicator>
-                  </Select.Item>
-                </Select.Group>
-              </Select.Viewport>
-
-              <Select.ScrollDownButton
-                alignItems="center"
-                justifyContent="center"
-                position="relative"
-                width="100%"
-                height="$3"
-              >
-                <YStack zIndex={10}>
-                  <ChevronDown size={20} />
-                </YStack>
-                <LinearGradient
-                  start={[0, 0]}
-                  end={[0, 1]}
-                  fullscreen
-                  colors={["transparent", "$background"]}
-                  borderRadius="$4"
-                />
-              </Select.ScrollDownButton>
-            </Select.Content>
-          </Select>
+            <Picker.Item label="Cognitive Behavioral Therapy" value="cbt" />
+            <Picker.Item label="Psychoanalysis" value="psychoanalysis" />
+            <Picker.Item label="Mindfulness" value="mindfulness" />
+            <Picker.Item label="Systemic Therapy" value="systemic" />
+          </Picker>
         </Card>
 
         {/* Location */}
@@ -297,6 +102,7 @@ export default function FilterPsy() {
           </XStack>
           <XStack space="$2">
             <Input
+              backgroundColor="white"
               flex={1}
               br="$8"
               bw={1}
@@ -306,6 +112,7 @@ export default function FilterPsy() {
               onChangeText={setCountry}
             />
             <Input
+              backgroundColor="white"
               flex={1}
               br="$8"
               bw={1}
@@ -317,106 +124,18 @@ export default function FilterPsy() {
           </XStack>
         </Card>
 
-        {/* Diversity & Inclusion (Custom Select) */}
-        <Card p="$3" br="$6" bw={1} boc="$gray4" mb="$3" overflow="visible">
+        {/* Diversity & Inclusion */}
+        <Card p="$3" br="$6" bw={1} boc="$gray4" mb="$3">
           <Text fontSize="$5" fontWeight="700" mb="$2">Diversity & Inclusion</Text>
-
-          <Select
-            value={diversity}
+          <Picker
+            selectedValue={diversity}
             onValueChange={setDiversity}
-            disablePreventBodyScroll
+            style={{ backgroundColor: "white", borderRadius: 8 }}
           >
-            <Select.Trigger
-              br="$8"
-              bw={1}
-              boc="$gray5"
-              bg="white"
-              h={42}
-              px="$3"
-              iconAfter={ChevronDown}
-              maxWidth="100%"
-            >
-              <Select.Value placeholder="Choose" />
-            </Select.Trigger>
-
-            <Adapt when="sm" platform="touch">
-              <Sheet modal dismissOnSnapToBottom snapPointsMode="fit">
-                <Sheet.Frame p="$3">
-                  <Sheet.ScrollView>
-                    <Adapt.Contents />
-                  </Sheet.ScrollView>
-                </Sheet.Frame>
-                <Sheet.Overlay />
-              </Sheet>
-            </Adapt>
-
-            <Select.Content zIndex={200000}>
-              <Select.ScrollUpButton
-                alignItems="center"
-                justifyContent="center"
-                position="relative"
-                width="100%"
-                height="$3"
-              >
-                <YStack zIndex={10}>
-                  <ChevronUp size={20} />
-                </YStack>
-                <LinearGradient
-                  start={[0, 0]}
-                  end={[0, 1]}
-                  fullscreen
-                  colors={["$background", "transparent"]}
-                  borderRadius="$4"
-                />
-              </Select.ScrollUpButton>
-
-              <Select.Viewport minWidth={240}>
-                <Select.Group>
-                  <Select.Label>Options</Select.Label>
-
-                  <Select.Item index={0} value="lgbt">
-                    <Select.ItemText>LGBTQIA+ friendly</Select.ItemText>
-                    <Select.ItemIndicator marginLeft="auto">
-                      <Check size={16} />
-                    </Select.ItemIndicator>
-                  </Select.Item>
-
-                  <Select.Item index={1} value="neurodiverse">
-                    <Select.ItemText>Neurodiverse friendly</Select.ItemText>
-                    <Select.ItemIndicator marginLeft="auto">
-                      <Check size={16} />
-                    </Select.ItemIndicator>
-                  </Select.Item>
-
-                  <Select.Item index={2} value="bilingual">
-                    <Select.ItemText>Bilingual</Select.ItemText>
-                    <Select.ItemIndicator marginLeft="auto">
-                      <Check size={16} />
-                    </Select.ItemIndicator>
-                  </Select.Item>
-                </Select.Group>
-              </Select.Viewport>
-
-              <Select.ScrollDownButton
-                alignItems="center"
-                justifyContent="center"
-                position="relative"
-                width="100%"
-                height="$3"
-              >
-                <YStack zIndex={10}>
-                  <ChevronDown size={20} />
-                </YStack>
-                <LinearGradient
-                  start={[0, 0]}
-                  end={[0, 1]}
-                  fullscreen
-                  colors={["transparent", "$background"]}
-                  borderRadius="$4"
-                />
-              </Select.ScrollDownButton>
-            </Select.Content>
-          </Select>
+            <Picker.Item label="LGBTQIA+ friendly" value="lgbt" />
+            <Picker.Item label="Neurodiverse friendly" value="neurodiverse" />
+            <Picker.Item label="Bilingual" value="bilingual" />
+          </Picker>
         </Card>
 
         {/* Availability */}
@@ -424,6 +143,7 @@ export default function FilterPsy() {
           <Text fontSize="$5" fontWeight="700" mb="$2">Availability</Text>
           <XStack space="$2">
             <Input
+              backgroundColor="white"
               flex={1}
               br="$8"
               bw={1}
@@ -433,6 +153,7 @@ export default function FilterPsy() {
               onChangeText={setDate}
             />
             <Input
+              backgroundColor="white"
               flex={1}
               br="$8"
               bw={1}
