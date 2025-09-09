@@ -22,7 +22,7 @@ function resolveRelative(basePath: string, rel: string) {
   if (rel.startsWith('/')) return rel
 
   const baseParts = basePath.split('/').filter(Boolean) // ex: ['admin','adminHome']
-  // se base aponta para uma página (não pasta), remove o último segmento para resolver relativo
+  // se base aponta para uma página (não cole), remove o último segmento para resolver relativo
   if (baseParts.length > 0) baseParts.pop()
 
   const relParts = rel.split('/')
@@ -61,7 +61,7 @@ const ITEMS: Item[] = [
     key: 'analytics',
     href: '../admin/adminAnalytics' as Href,
     Icon: GraphIcon,
-    match: '../admin/adminAnalytics', // ajuste se existir rota real
+    match: '../admin/adminAnalytics',
   },
   {
     key: 'profile',
@@ -92,7 +92,7 @@ export function Menu() {
               opacity={active ? 0.6 : 1}
               pressStyle={!active ? { scale: 0.98, opacity: 0.85 } : undefined}
               onPress={() => {
-                if (!active) router.push(href)
+                if (!active) router.replace(href)
               }}
             >
               <Icon color={active ? 'black' : 'white'} size={24} />

@@ -1,8 +1,9 @@
 import { useLocalSearchParams, useRouter } from 'expo-router'
 import { Button } from '~/components/Button'
-import { Input, Label, ScrollView, Text, Image, XStack, YStack, Spacer } from 'tamagui'
+import { Input, Label, ScrollView, Text, Image, XStack, YStack, Spacer, Button as ButtonTamagui } from 'tamagui'
 import { useState, useEffect } from 'react'
 import { KeyboardAvoidingView, Platform } from 'react-native';
+import { ArrowLeft } from '@tamagui/lucide-icons'
 
 export default function SignUp() {
   const router = useRouter()
@@ -50,6 +51,22 @@ export default function SignUp() {
       style={{ flex: 1 }}
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     >
+      {/* Return Button */}
+        <YStack
+          position="absolute"
+          t={12}
+          l={12}
+          zIndex={100}
+          pointerEvents="box-none"
+        >
+          <ButtonTamagui
+            size="$5"
+            chromeless
+            icon={<ArrowLeft />}
+            onPress={() => router.replace('/')}
+            hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
+          />
+        </YStack>
       <ScrollView f={1} p="$4" bg="white" contentContainerStyle={{ paddingBottom: 60 }}>
         <YStack alignItems="center" mb="$4">
           <Image source={require('../assets/logo.png')} width={80} height={80} />

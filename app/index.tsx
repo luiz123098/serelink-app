@@ -35,7 +35,7 @@ export default function Home() {
             bg="$gray5"
             br="$8"
             onPress={() =>
-              router.push({ pathname: '/signUp', params: { appType: 'family' } })
+              router.replace({ pathname: '/signUp', params: { appType: 'family' } })
             }
           />
 
@@ -45,7 +45,7 @@ export default function Home() {
             bg="$gray5"
             br="$8"
             onPress={() =>
-              router.push({ pathname: '/signUp', params: { appType: 'team' } })
+              router.replace({ pathname: '/signUp', params: { appType: 'team' } })
             }
           />
 
@@ -55,7 +55,7 @@ export default function Home() {
             bg="$gray5"
             br="$8"
             onPress={() =>
-              router.push({ pathname: '/signUp', params: { appType: 'individual' } })
+              router.replace({ pathname: '/signUp', params: { appType: 'individual' } })
             }
           />
 
@@ -65,7 +65,7 @@ export default function Home() {
             bg="$gray5"
             br="$8"
             onPress={() =>
-              router.push({ pathname: '/signUp', params: { appType: 'couples' } })
+              router.replace({ pathname: '/signUp', params: { appType: 'couples' } })
             }
           />
         </YStack>
@@ -77,7 +77,7 @@ export default function Home() {
 
         <Button title='Log in' bg="#99cc33" color="white" borderRadius={20} px="$4" mt="$1" width={220}
           onPress={() =>
-              router.push({ pathname: '/logIn'})
+              router.replace({ pathname: '/logIn'})
             }
         ></Button>
       </YStack>

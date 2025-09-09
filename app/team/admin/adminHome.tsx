@@ -4,7 +4,8 @@ import { Menu } from '../../../components/Menu'
 import { 
     Settings as SettingsIcon,
     CreditCard as CardIcon,
-    Bell as BellIcon
+    Bell as BellIcon,
+    Users
          } from '@tamagui/lucide-icons'
 import { router } from 'expo-router'
 
@@ -24,14 +25,19 @@ export default function AdminHome() {
 
           <XStack space="$3">
             <Button size="$2" bg="transparent"><CardIcon></CardIcon></Button>
-            <Button size="$2" bg="transparent"><BellIcon></BellIcon></Button>
-            <Button size="$2" bg="transparent" onPress={() => {router.push('./settings')}}><SettingsIcon></SettingsIcon></Button>
+            <Button size="$2" bg="transparent" onPress={() => {router.push('./manageTeam/teamManagement')}}><Users></Users></Button>
+            <Button size="$2" bg="transparent" onPress={() => {router.replace('./settings')}}><SettingsIcon></SettingsIcon></Button>
           </XStack>
         </XStack>
 
         <XStack space="$3" mt="$4">
-          <Button f={1} bg="#99cc33" br="$6" color="white">Buy session</Button>
-          <Button f={1} bg="#99cc33" br="$6" color="white">Quick schedule</Button>
+          <Button f={1} bg="#99cc33" br="$6" color="white"
+          onPress={() => {router.push('../creditsManagement/creditConverter')}}>
+            <Text color="white">Credit Converter</Text>
+          </Button>
+          <Button f={1} bg="#99cc33" br="$6" color="white">
+            <Text color="white">My Sessions</Text>
+          </Button>
         </XStack>
       </YStack>
 

@@ -29,7 +29,7 @@ export default function AdminSettings() {
                 </Card>
                 
                 <Separator marginVertical={10}/>
-                <Card backgroundColor={'lightgray'} onPress={() => {alert('Subscription!')}}>
+                <Card backgroundColor={'lightgray'} onPress={() => {router.push('../creditsManagement/subscriptionManagement')}}>
                     <Text> <HeartIcon />  Manage Subscription <ChevronRightIcon /></Text>
                 </Card>
             </Card>

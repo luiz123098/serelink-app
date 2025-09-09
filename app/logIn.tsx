@@ -1,8 +1,9 @@
 import { useRouter } from 'expo-router'
 import { useState } from 'react'
 import { Button } from '~/components/Button'
-import { Input, Label, ScrollView, Text, YStack, Image } from 'tamagui'
+import { Input, Label, ScrollView, Text, YStack, Image, XStack, Button as ButtonTamagui } from 'tamagui'
 import { KeyboardAvoidingView, Platform } from 'react-native'
+import { ArrowLeft } from '@tamagui/lucide-icons'
 
 export default function Login() {
   const router = useRouter()
@@ -13,11 +14,11 @@ export default function Login() {
   const handleLogin = () => {
     // Simulação de verificação no "back-end"
     if (email === 'user@company.com' && password === '123456') {
-      const userAppType = 'Team' // <-- isso normalmente viria do banco de dados
+      const userAppType = 'Team' // <-- Change for back-end data
 
       // Precisa validar o tipo de usuario Admin ou membro
       // Tem que fazer a logica de identificar o userAppType e levar ele para a pagina certa
-      router.push({
+      router.replace({
         pathname: './team/admin/adminHome',
         params: {
           appType: userAppType,
@@ -34,7 +35,26 @@ export default function Login() {
         style={{ flex: 1 }}
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     >
+        {/* Return Button */}
+        <YStack
+          position="absolute"
+          t={12}
+          l={12}
+          zIndex={100}
+          pointerEvents="box-none"
+        >
+          <ButtonTamagui
+            size="$5"
+            chromeless
+            icon={<ArrowLeft />}
+            onPress={() => router.replace('/')}
+            hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
+          />
+        </YStack>
+
+
         <ScrollView f={1} bg="white" p="$4">
+
         <YStack f={1} ai="center" space="$4" mt="$6">
 
             <Image source={require('../assets/logo.png')} width={200} height={200} ></Image>
