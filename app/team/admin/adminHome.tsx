@@ -6,6 +6,7 @@ import {
     CreditCard as CardIcon,
     Bell as BellIcon
          } from '@tamagui/lucide-icons'
+import { router } from 'expo-router'
 
 export default function AdminHome() {
   return (
@@ -24,7 +25,7 @@ export default function AdminHome() {
           <XStack space="$3">
             <Button size="$2" bg="transparent"><CardIcon></CardIcon></Button>
             <Button size="$2" bg="transparent"><BellIcon></BellIcon></Button>
-            <Button size="$2" bg="transparent"><SettingsIcon></SettingsIcon></Button>
+            <Button size="$2" bg="transparent" onPress={() => {router.push('./settings')}}><SettingsIcon></SettingsIcon></Button>
           </XStack>
         </XStack>
 
