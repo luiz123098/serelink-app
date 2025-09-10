@@ -18,9 +18,9 @@ type Member = {
 }
 
 const MOCK_MEMBERS: Member[] = [
-  { id: 'u1', name: 'Dr. Emily Clark',  title: 'Licensed Psychologist',     avatar: 'https://randomuser.me/api/portraits/women/44.jpg', active: true },
-  { id: 'u2', name: 'Dr. John Smith',   title: 'Mental Health Counselor',   avatar: 'https://randomuser.me/api/portraits/men/32.jpg',   active: false },
-  { id: 'u3', name: 'Dr. Sarah Lee',    title: 'Therapist',                 avatar: 'https://randomuser.me/api/portraits/women/68.jpg', active: true },
+  { id: 'u1', name: 'Emily Clark',  title: 'Solutions Intern',     avatar: 'https://randomuser.me/api/portraits/women/44.jpg', active: true },
+  { id: 'u2', name: 'John Smith',   title: 'Sales Agent',   avatar: 'https://randomuser.me/api/portraits/men/32.jpg',   active: false },
+  { id: 'u3', name: 'Sarah Lee',    title: 'Intern',                 avatar: 'https://randomuser.me/api/portraits/women/68.jpg', active: true },
 ]
 
 export default function TeamManagement() {

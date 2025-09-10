@@ -45,7 +45,7 @@ export default function AdminSettings() {
                 </Card>
                 <Separator marginVertical={10}/>
 
-                <Card backgroundColor={'lightgray'} onPress={() => {alert('Notifications!')}}>
+                <Card backgroundColor={'lightgray'} onPress={() => {router.push('/notificationsPage')}}>
                     <Text> <BellIcon />  Notifications <ChevronRightIcon /> </Text>
                 </Card>
                 

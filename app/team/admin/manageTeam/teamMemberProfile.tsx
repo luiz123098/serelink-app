@@ -10,19 +10,19 @@ import { useWindowDimensions } from 'react-native'
 
 const MOCK_MAP = {
   u1: {
-    name: 'Dr. Emily Clark',
+    name: 'Emily Clark',
     email: 'emily.clark@example.com',
     phone: '(555) 111-1234',
     avatar: 'https://randomuser.me/api/portraits/women/44.jpg',
   },
   u2: {
-    name: 'Dr. John Smith',
+    name: 'John Smith',
     email: 'john.smith@example.com',
     phone: '(555) 222-4567',
     avatar: 'https://randomuser.me/api/portraits/men/32.jpg',
   },
   u3: {
-    name: 'Dr. Sarah Lee',
+    name: 'Sarah Lee',
     email: 'sarah.lee@example.com',
     phone: '(555) 333-7890',
     avatar: 'https://randomuser.me/api/portraits/women/68.jpg',

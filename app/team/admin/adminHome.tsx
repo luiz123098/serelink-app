@@ -24,10 +24,20 @@ export default function AdminHome() {
           </XStack>
 
           <XStack space="$3">
-            <Button size="$2" bg="transparent"><CardIcon></CardIcon></Button>
-            <Button size="$2" bg="transparent" onPress={() => {router.push('./manageTeam/teamManagement')}}><Users></Users></Button>
-            <Button size="$2" bg="transparent" onPress={() => {router.replace('./settings')}}><SettingsIcon></SettingsIcon></Button>
+            <Button size="$2" bg="transparent" onPress={
+                                                        () => {router.push('../../payments/paymentMethod')}}>
+              <CardIcon></CardIcon>
+            </Button>
+            <Button size="$2" bg="transparent" onPress={
+                                                        () => {router.push('./manageTeam/teamManagement')}}>
+              <Users></Users>
+            </Button>
+            <Button size="$2" bg="transparent" onPress={
+                                                        () => {router.replace('./settings')}}>
+              <SettingsIcon></SettingsIcon>
+            </Button>
           </XStack>
+
         </XStack>
 
         <XStack space="$3" mt="$4">
